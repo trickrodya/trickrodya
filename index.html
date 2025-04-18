@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Калькулятор</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="calculator">
+            <h1>Калькулятор</h1>
+            <form id="calcForm">
+                <div class="input-group">
+                    <input type="number" id="oborot_v_mesyats" placeholder="Средний оборот в месяц" required>
+                    <input type="range" id="oborot_slider" min="100000" max="100000000" step="100000" value="100000">
+                    <div class="slider-value">100 000 ₽</div>
+                    <div class="input-with-percent">
+                        <input type="number" id="stava_banka" placeholder="Ставка банка" step="0.1" min="0" max="100" required>
+                        <span class="percent-symbol">%</span>
+                    </div>
+                    <div class="select-with-percent">
+                        <select id="stavaka_netmonet" required>
+                            <option value="" disabled selected>Выберите ставку нетмонет</option>
+                            <option value="0">0%</option>
+                            <option value="0.5">0.5%</option>
+                            <option value="0.6">0.6%</option>
+                            <option value="0.7">0.7%</option>
+                        </select>
+                    </div>
+                    <div class="input-with-percent">
+                        <input type="number" id="oborot_maybe" placeholder="Оборот через нетмонет (чаще всего это 25%)" min="0" max="100" required>
+                        <span class="percent-symbol">%</span>
+                    </div>
+                </div>
+                <button type="submit">Рассчитать</button>
+                <div id="result" class="result-container">
+                    <div class="result-item">
+                        <span class="result-label" id="bank-commission-label">Комиссия банка</span>
+                        <span class="result-value" id="bank-commission">0 ₽</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label" id="netmonet-commission-label">Комиссия нетмонет</span>
+                        <span class="result-value" id="netmonet-commission">0 ₽</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="result-label">Экономия в месяц</span>
+                        <span class="result-value" id="monthly-economy">0 ₽</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="result-label">Экономия в год</span>
+                        <span class="result-value" id="yearly-economy">0 ₽</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <a href="#" class="developer-button" id="developer-link">development by Trick.Rodya</a>
+        <div id="image-modal" class="modal">
+            <div class="modal-content">
+                <h3 class="modal-title">Связь с разработчиком:</h3>
+                <div class="social-links">
+                    <a href="https://t.me/rodionchavdar" target="_blank" class="social-link">Telegram</a>
+                    <a href="https://www.instagram.com/trick.rodya?igsh=Z2tleHNjeHk1a2Rr&utm_source=qr" target="_blank" class="social-link">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
