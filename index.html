@@ -37,17 +37,16 @@
                         <span class="percent-symbol">%</span>
                     </div>
                     <div class="select-with-percent">
-                        <select id="stavaka_netmonet" required>
-                            <option value="" disabled selected>Выберите ставку нетмонет</option>
-                            <option value="0">0%</option>
-                            <option value="0.5">0.5%</option>
-                            <option value="0.6">0.6%</option>
-                            <option value="0.7">0.7%</option>
-                        </select>
+                        <input type="number" id="stavaka_netmonet" placeholder="Введите ставку нетмонет" step="0.1" min="0" max="100" required>
+                        <span class="percent-symbol">%</span>
                     </div>
                     <div class="input-with-percent">
                         <input type="number" id="oborot_maybe" placeholder="Оборот через нетмонет (чаще всего это 25%)" min="0" max="100" required>
                         <span class="percent-symbol">%</span>
+                    </div>
+                    <div class="ruble-conversion">
+                        <span class="ruble-text">в рублях это</span>
+                        <span class="ruble-value" id="oborot_maybe_ruble">0 ₽</span>
                     </div>
                 </div>
                 <button type="submit">Рассчитать</button>
