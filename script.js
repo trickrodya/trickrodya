@@ -20,7 +20,19 @@ oborotInput.addEventListener('input', function() {
     const value = Math.min(Math.max(parseInt(this.value) || 100000, 100000), 100000000);
     oborotSlider.value = value;
     sliderValue.textContent = formatNumber(value) + ' ₽';
+    updateOborotMaybeRuble();
 });
+
+// Функция обновления значения в рублях для процента оборота
+function updateOborotMaybeRuble() {
+    const oborot = parseFloat(document.getElementById('oborot_v_mesyats').value) || 0;
+    const percent = parseFloat(document.getElementById('oborot_maybe').value) || 0;
+    const rubleValue = (oborot * percent) / 100;
+    document.getElementById('oborot_maybe_ruble').textContent = formatNumber(rubleValue.toFixed(2)) + ' ₽';
+}
+
+// Добавляем слушатель для поля ввода процента
+document.getElementById('oborot_maybe').addEventListener('input', updateOborotMaybeRuble);
 
 document.getElementById('calcForm').addEventListener('submit', function(e) {
     e.preventDefault();
